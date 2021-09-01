@@ -3,9 +3,6 @@ name: Periodic health check
 on:
   schedule:
     - cron:  '0/5 * * * *'
-  push:
-    branches:
-      - Periodic-health-check
 
 jobs:
   simple_deployment_pipeline:
@@ -14,5 +11,5 @@ jobs:
     - name: Check the deployed service URL
       uses: jtalk/url-health-check-action@v1.5
       with:
-        url: https://pacific-everglades-48882.herokuapp.com/versio
+        url: https://pacific-everglades-48882.herokuapp.com/version
         follow-redirect: no
