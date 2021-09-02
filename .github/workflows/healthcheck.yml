@@ -2,7 +2,7 @@ name: Periodic health check
 
 on:
   schedule:
-    - cron:  '0/5 * * * *'
+    - cron:  '0 * * * *'
 
 jobs:
   simple_deployment_pipeline:
@@ -13,3 +13,6 @@ jobs:
       with:
         url: https://pacific-everglades-48882.herokuapp.com/version
         follow-redirect: no
+        max-attempts: 2
+        retry-delay: 300s
+        retry-all: yes
