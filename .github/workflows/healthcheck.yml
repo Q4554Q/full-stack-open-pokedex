@@ -5,7 +5,7 @@ on:
     - cron:  '0 * * * *'
 
 jobs:
-  simple_deployment_pipeline:
+  healthcheck:
     runs-on: ubuntu-18.04
     steps:
     - name: Check the deployed service URL
@@ -13,6 +13,6 @@ jobs:
       with:
         url: https://pacific-everglades-48882.herokuapp.com/version
         follow-redirect: no
-        max-attempts: 2
-        retry-delay: 300s
-        retry-all: yes
+        max-attempts: 3
+        retry-delay: 5s
+        retry-all: no
